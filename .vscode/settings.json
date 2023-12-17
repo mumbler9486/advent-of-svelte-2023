@@ -1,0 +1,14 @@
+{
+	"editor.formatOnSave": true,
+	"debug.toolBarLocation": "hidden",
+	"npm.packageManager": "pnpm",
+	"[svelte]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[json]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[javascript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	}
+}

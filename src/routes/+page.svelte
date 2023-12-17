@@ -1,2 +1,16 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script lang="ts">
+
+</script>
+
+<svelte:head>
+  <title>Advent of Svelte 2023</title>
+</svelte:head>
+
+<main>
+  <h1>
+    Advent of Svelte 2023 Solutions by Mumbler9486.
+  </h1>
+  <p>
+    <a href="https://github.com/mumbler9486/advent-of-svelte-2023" target="_blank" rel="noopener noreferrer">Source Code</a>
+  </p>
+</main>

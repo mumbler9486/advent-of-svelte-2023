@@ -3,7 +3,7 @@
 	"debug.toolBarLocation": "hidden",
 	"npm.packageManager": "pnpm",
 	"[svelte]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
+		"editor.defaultFormatter": "svelte.svelte-vscode"
 	},
 	"[json]": {
 		"editor.defaultFormatter": "esbenp.prettier-vscode"

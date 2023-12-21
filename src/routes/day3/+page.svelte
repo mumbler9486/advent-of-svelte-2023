@@ -1,7 +1,6 @@
 <script lang="ts">
 	import Button from '$lib/components/Button.svelte';
 	import Present from './Present.svelte';
-	import dayThreeTallies from './day-three.json';
 	import { onMount } from 'svelte';
 
 	let sleighPresents: Present[] = [];
@@ -21,7 +20,8 @@
 	const loadPresents = async () => {
 		sleighLoads = [];
 		sleighPresents = [];
-		presents = JSON.parse(JSON.stringify(dayThreeTallies));
+		let presentsRequest = await fetch('https://advent.sveltesociety.dev/data/2023/day-three.json');
+		presents = await presentsRequest.json();
 	};
 
 	onMount(loadPresents);

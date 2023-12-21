@@ -20,7 +20,9 @@
 	const loadPresents = async () => {
 		sleighLoads = [];
 		sleighPresents = [];
-		let presentsRequest = await fetch('https://advent.sveltesociety.dev/data/2023/day-three.json');
+		const presentsRequest = await fetch(
+			'https://advent.sveltesociety.dev/data/2023/day-three.json'
+		);
 		presents = await presentsRequest.json();
 	};
 

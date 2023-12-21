@@ -23,6 +23,12 @@ devDependencies:
   autoprefixer:
     specifier: ^10.4.16
     version: 10.4.16(postcss@8.4.32)
+  chart.js:
+    specifier: ^4.4.1
+    version: 4.4.1
+  chartjs-adapter-date-fns:
+    specifier: ^3.0.0
+    version: 3.0.0(chart.js@4.4.1)(date-fns@3.0.5)
   daisyui:
     specifier: ^4.4.20
     version: 4.4.20(postcss@8.4.32)
@@ -383,6 +389,10 @@ packages:
     dependencies:
       '@jridgewell/resolve-uri': 3.1.1
       '@jridgewell/sourcemap-codec': 1.4.15
+    dev: true
+
+  /@kurkle/color@0.3.2:
+    resolution: {integrity: sha512-fuscdXJ9G1qb7W8VdHi+IwRqij3lBkosAm4ydQtEmbY58OzHXqQhvlxqEkoz0yssNVn38bcpRWgA9PP+OGoisw==}
     dev: true
 
   /@nodelib/fs.scandir@2.1.5:
@@ -964,6 +974,23 @@ packages:
       supports-color: 7.2.0
     dev: true
 
+  /chart.js@4.4.1:
+    resolution: {integrity: sha512-C74QN1bxwV1v2PEujhmKjOZ7iUM4w6BWs23Md/6aOZZSlwMzeCIDGuZay++rBgChYru7/+QFeoQW0fQoP534Dg==}
+    engines: {pnpm: '>=7'}
+    dependencies:
+      '@kurkle/color': 0.3.2
+    dev: true
+
+  /chartjs-adapter-date-fns@3.0.0(chart.js@4.4.1)(date-fns@3.0.5):
+    resolution: {integrity: sha512-Rs3iEB3Q5pJ973J93OBTpnP7qoGwvq3nUnoMdtxO+9aoJof7UFcRbWcIDteXuYd1fgAvct/32T9qaLyLuZVwCg==}
+    peerDependencies:
+      chart.js: '>=2.8.0'
+      date-fns: '>=2.0.0'
+    dependencies:
+      chart.js: 4.4.1
+      date-fns: 3.0.5
+    dev: true
+
   /check-error@1.0.3:
     resolution: {integrity: sha512-iKEoDYaRmd1mxM90a2OEfWhjsjPpYPuQ+lMYsoxB126+t8fw7ySEO48nmDg5COTjxDI65/Y2OWpeEHk3ZOe8zg==}
     dependencies:
@@ -1065,6 +1092,10 @@ packages:
       postcss-js: 4.0.1(postcss@8.4.32)
     transitivePeerDependencies:
       - postcss
+    dev: true
+
+  /date-fns@3.0.5:
+    resolution: {integrity: sha512-Q4Tq5c5s/Zl/zbgdWf6pejn9ru7UwdIlLfvEEg1hVsQNQ7LKt76qIduagIT9OPK7+JCv1mAKherdU6bOqGYDnw==}
     dev: true
 
   /debug@4.3.4:

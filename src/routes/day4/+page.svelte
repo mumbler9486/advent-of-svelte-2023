@@ -1,6 +1,5 @@
 <script lang="ts">
 	import LineChart from '$lib/components/LineChart.svelte';
-	import type { Point } from 'chart.js';
 	import { onDestroy, onMount } from 'svelte';
 
 	let monitorTimer: ReturnType<typeof setInterval>;
@@ -38,6 +37,7 @@
 <div>
 	<img class="w-48" src="/images/heart.png" alt="heart" />
 	<div class="w-3/5">
-		<LineChart data={heartRateHistory}></LineChart>
+		<LineChart data={heartRateHistory} lineLabel="Santa's Heart Rate" min={70} max={190}
+		></LineChart>
 	</div>
 </div>

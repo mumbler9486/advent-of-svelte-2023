@@ -3,15 +3,15 @@
 	import 'chartjs-adapter-date-fns';
 	import { onMount } from 'svelte';
 
-	export let data: DataPoint[] = [];
-	export let lineLabel: string = '';
+	export let data1: DataPoint[] = [];
+	export let data2: DataPoint[] = [];
+	export let data1Label: string = 'Data 1';
+	export let data2Label: string = 'Data 2';
 	export let min: number | undefined = undefined;
 	export let max: number | undefined = undefined;
-	export let lineColor: string = '#e80000';
-	export let showPoints: boolean = false;
 
 	interface DataPoint {
-		x: number | Date;
+		x: string | Date;
 		y: number;
 	}
 
@@ -20,7 +20,8 @@
 
 	$: {
 		if (!!chart) {
-			chart.data.datasets[0].data = data as unknown as Point[];
+			chart.data.datasets[0].data = data1 as unknown as Point[];
+			chart.data.datasets[1].data = data2 as unknown as Point[];
 			chart.update();
 		}
 	}
@@ -28,27 +29,33 @@
 	const initChart = () => {
 		const ctx = canvas as ChartItem;
 		chart = new Chart(ctx, {
-			type: 'line',
+			type: 'bar',
 			data: {
 				datasets: [
 					{
-						label: lineLabel,
-						data: data as unknown as Point[],
-						borderWidth: 1,
-						backgroundColor: lineColor,
-						borderColor: lineColor,
-						pointRadius: showPoints ? undefined : 0
+						label: data1Label,
+						data: data1 as unknown as Point[],
+						backgroundColor: '#bc0000',
+						borderColor: '#bc0000'
+					},
+					{
+						label: data2Label,
+						data: data2 as unknown as Point[],
+						backgroundColor: '#00c413',
+						borderColor: '#00c413'
 					}
 				]
 			},
 			options: {
 				scales: {
 					x: {
-						type: 'time'
+						type: 'time',
+						stacked: true
 					},
 					y: {
 						min: min,
-						max: max
+						max: max,
+						stacked: true
 					}
 				}
 			}

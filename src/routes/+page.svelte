@@ -25,7 +25,7 @@
 						<a href="/day2">✔ Day 2</a>
 						<a href="/day3">✔ Day 3</a>
 						<a href="/day4">✔ Day 4</a>
-						<a class="pointer-events-none" href="/day5">Day 5</a>
+						<a href="/day5">✔ Day 5</a>
 						<a class="pointer-events-none" href="/day6">Day 6</a>
 						<a class="pointer-events-none" href="/day7">Day 7</a>
 						<a class="pointer-events-none" href="/day8">Day 8</a>

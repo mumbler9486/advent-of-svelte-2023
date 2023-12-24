@@ -1,27 +1,34 @@
 <script lang="ts">
 	import SoundEffect from './SoundEffect.svelte';
+	import YoutubePlayer from './YoutubePlayer.svelte';
 
 	const musicList: Song[] = [
-		{ name: 'Last Christmas - Wham!', youtubeUrl: 'https://www.youtube.com/embed/E8gmARGvPlI' },
+		{
+			name: 'Last Christmas - Wham!',
+			youtubeEmbedUrl: 'https://www.youtube.com/embed/E8gmARGvPlI'
+		},
 		{
 			name: 'Toad Sings All I want for Chirstmas is you',
-			youtubeUrl: 'https://www.youtube.com/embed/2RtI5UEZlzU'
+			youtubeEmbedUrl: 'https://www.youtube.com/embed/2RtI5UEZlzU'
 		},
 		{
 			name: 'PSO2 Christmas Lobby (©SEGA)',
-			youtubeUrl: 'https://www.youtube.com/embed/-uf9G388rpE'
+			youtubeEmbedUrl: 'https://www.youtube.com/embed/-uf9G388rpE'
 		},
 		{
-			name: 'Last Christmas - Vintage Andrews Sisters - Style',
-			youtubeUrl: 'https://www.youtube.com/embed/a3Hrn2_LxDs'
+			name: 'Last Christmas - Vintage Andrews Sisters Style',
+			youtubeEmbedUrl: 'https://www.youtube.com/embed/a3Hrn2_LxDs'
+		},
+		{
+			name: 'Have Yourself A Merry Little Christmas - Frank Sinatra',
+			youtubeEmbedUrl: 'https://www.youtube.com/embed/-tJtsKngXJU'
 		}
 	];
 	const soundEffects: SoundEffect[] = [
 		{ label: '🥁(D)', uri: '/sounds/drum_sfx.wav', playbackKey: 'KeyD' },
-		{ label: '🎄🔔(W)', uri: '/sounds/jingle_bells_sfx.wav', playbackKey: 'KeyW' }
+		{ label: '🎄🔔(W)', uri: '/sounds/jingle_bells_sfx.wav', playbackKey: 'KeyW' },
+		{ label: '🎩🥁(A)', uri: '/sounds/high_hat_sfx.wav', playbackKey: 'KeyA' }
 	];
-
-	const embedOptions = '?loop=1&autoplay=1';
 
 	interface SoundEffect {
 		label: string;
@@ -31,13 +38,13 @@
 
 	interface Song {
 		name: string;
-		youtubeUrl: string;
+		youtubeEmbedUrl: string;
 	}
 
 	let currentSong: Song = musicList[0];
 
 	const playSong = (youtubeUrl: string) => {
-		const song = musicList.find((x) => x.youtubeUrl === youtubeUrl);
+		const song = musicList.find((x) => x.youtubeEmbedUrl === youtubeUrl);
 		if (!song) {
 			throw Error('Unknown Song:' + youtubeUrl);
 		}
@@ -58,7 +65,7 @@
 	};
 </script>
 
-<div class="grid grid-cols-3">
+<div class="grid grid-cols-1 lg:grid-cols-3">
 	<div>
 		<p class="text-center select-none" style="font-size: 12rem;">🎶</p>
 		<p class="text-xl text-center">BPM: {sfxBpm}</p>
@@ -75,13 +82,13 @@
 			{#each musicList as song, i}
 				<tr>
 					<td>
-						<button on:click={() => playSong(song.youtubeUrl)}>▶</button>
+						<button on:click={() => playSong(song.youtubeEmbedUrl)}>▶</button>
 					</td>
 					<td>{song.name}</td>
 					<td>
 						<a
 							class="text-xs link"
-							href={song.youtubeUrl}
+							href={song.youtubeEmbedUrl}
 							target="_blank"
 							rel="noopener noreferrer"
 						>
@@ -92,7 +99,7 @@
 			{/each}
 		</tbody>
 	</table>
-	<div class="row-start-2 flex flex-col items-center gap-2 p-4">
+	<div class="lg:row-start-2 flex flex-col items-center gap-2 p-4">
 		{#each soundEffects as sfx}
 			<SoundEffect
 				label={sfx.label}
@@ -102,14 +109,7 @@
 			></SoundEffect>
 		{/each}
 	</div>
-	<div class="row-start-2 col-start-2">
-		<iframe
-			class="aspect-video w-full bg-base-100"
-			src={currentSong.youtubeUrl + embedOptions}
-			title="YouTube video player"
-			frameborder="0"
-			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-			allowfullscreen
-		/>
+	<div class="lg:row-start-2 lg:col-start-2">
+		<YoutubePlayer youtubeUrl={currentSong.youtubeEmbedUrl} autoplay loop />
 	</div>
 </div>

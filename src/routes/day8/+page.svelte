@@ -26,7 +26,7 @@
 		for (let i = 0; i < CardNumMax * 2; i++) {
 			const card = {
 				cardId: i + 1,
-				cardNum: Math.floor((i - (i % 2)) / 2) + 1
+				cardNum: Math.floor((i - (i % 2)) / 2) + 1,
 			};
 			cards.push(card);
 		}
@@ -132,7 +132,7 @@
 		<p>Matched Pairs: {foundPairs.length / 2}</p>
 		<p>Guesses: {guesses}</p>
 		{#if isGameOver}
-			<h1 class="text-success text-6xl">YOU WIN!</h1>
+			<h1 class="text-6xl text-success">YOU WIN!</h1>
 		{/if}
 		<Button on:click={resetGame}>Reset Game?</Button>
 	</div>

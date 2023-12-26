@@ -85,7 +85,7 @@
 	<h1 class="text-xl">Morse Code Translator</h1>
 	<img src="/images/telegraph_elf.jpg" alt="AI Generated Santa's Elf on a Telegraph" />
 	<Input label="Text to Translate" bind:value={text} />
-	<p class="p-4 bg-base-300">{translatedText}</p>
+	<p class="bg-base-300 p-4">{translatedText}</p>
 	<Button on:click={playbackMorse}>▶</Button>
 	<Button on:click={stopPlayback}>⏹</Button>
 </div>

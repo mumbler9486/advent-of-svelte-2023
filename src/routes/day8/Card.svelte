@@ -3,7 +3,7 @@
 	export let showBack: boolean = false;
 
 	const cardBack = '/images/cards/card_back.png';
-	const cards: string[] = [
+	const cardImgs: string[] = [
 		'/images/cards/1.png',
 		'/images/cards/2.png',
 		'/images/cards/3.png',
@@ -27,14 +27,21 @@
 		'/images/cards/21.png',
 		'/images/cards/22.png',
 		'/images/cards/23.png',
-		'/images/cards/24.png'
+		'/images/cards/24.png',
 	];
 
-	$: cardImage = cards[cardNumber - 1] ?? '';
+	$: cardImage = cardImgs[cardNumber - 1] ?? '';
 </script>
 
+<svelte:head>
+	<link rel="preload" as="image" href={cardBack} />
+	{#each cardImgs as cardImg}
+		<link rel="preload" as="image" href={cardImg} />
+	{/each}
+</svelte:head>
+
 {#if showBack}
-	<div class="cursor-pointer w-28" on:click on:keyup role="button" tabindex={cardNumber}>
+	<div class="w-28 cursor-pointer" on:click on:keyup role="button" tabindex={cardNumber}>
 		<img src={cardBack} alt="cardBack" />
 	</div>
 {:else}

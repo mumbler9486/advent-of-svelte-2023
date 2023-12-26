@@ -75,10 +75,14 @@
 
 	const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
-	onDestroy(stopPlayback);
+	onDestroy(() => {
+		stopPlayback();
+		audioContext?.close();
+	});
 </script>
 
 <div class="flex flex-col gap-4 lg:w-96">
+	<h1 class="text-xl">Morse Code Translator</h1>
 	<img src="/images/telegraph_elf.jpg" alt="AI Generated Santa's Elf on a Telegraph" />
 	<Input label="Text to Translate" bind:value={text} />
 	<p class="p-4 bg-base-300">{translatedText}</p>

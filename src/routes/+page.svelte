@@ -19,7 +19,7 @@
 							rel="noopener noreferrer">Source Code</a
 						>
 					</p>
-					<h1 class="text-3xl my-6">Solutions</h1>
+					<h1 class="my-6 text-3xl">Solutions</h1>
 					<div class="flex flex-col gap-4">
 						<a href="/day1">✔ Day 1</a>
 						<a href="/day2">✔ Day 2</a>
@@ -29,7 +29,7 @@
 						<a href="/day6">✔ Day 6</a>
 						<a href="/day7">✔ Day 7</a>
 						<a href="/day8">✔ Day 8</a>
-						<a class="pointer-events-none" href="/day9">Day 9</a>
+						<a href="/day9">✔ Day 9</a>
 						<a class="pointer-events-none" href="/day10">Day 10</a>
 						<a class="pointer-events-none" href="/day11">Day 11</a>
 						<a class="pointer-events-none" href="/day12">Day 12</a>

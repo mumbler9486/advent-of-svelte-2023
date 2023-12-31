@@ -13,6 +13,14 @@
 				<p>Solutions by Mumbler9486</p>
 				<p class="mt-4">
 					<a
+						class="link"
+						href="https://advent.sveltesociety.dev"
+						target="_blank"
+						rel="noopener noreferrer">Advent of Svelte 2023 Challenges</a
+					>
+				</p>
+				<p class="mt-4">
+					<a
 						class="btn btn-secondary"
 						href="https://github.com/mumbler9486/advent-of-svelte-2023"
 						target="_blank"

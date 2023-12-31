@@ -1,5 +1,6 @@
 <script lang="ts">
 	import elfNames from './day-eleven.json';
+	import { cyrb128 } from './hash';
 	import { levenshteinDistance } from './levenshteinDistance';
 
 	let inputName: string = '';
@@ -20,17 +21,27 @@
 			return '';
 		}
 
-		let minLevDistance = 1000000;
-		let minName = '';
-		for (let elfName of elfNameList) {
-			const levDistance = levenshteinDistance(name, elfName);
-			if (levDistance < minLevDistance) {
-				minLevDistance = levDistance;
-				minName = elfName;
-			}
-		}
+		// First determine the lev distances for this name
+		const nameInfos = elfNameList.map((elfName) => ({
+			levDistance: levenshteinDistance(name, elfName),
+			elfName: elfName,
+		}));
 
-		return minName;
+		// Find the min
+		const minLevDistance = nameInfos.reduce((prev, curr) => {
+			if (curr.levDistance < prev) {
+				return curr.levDistance;
+			}
+			return prev;
+		}, 1000000);
+
+		// Gather the minimums
+		const closestElfNames = nameInfos.filter((nameInfo) => nameInfo.levDistance === minLevDistance);
+		console.log(closestElfNames);
+		// Random select the name based on the original name's hash
+		const nameHash = cyrb128(name);
+		const closestNameIndex = nameHash[0] % closestElfNames.length;
+		return closestElfNames[closestNameIndex].elfName;
 	};
 </script>
 
